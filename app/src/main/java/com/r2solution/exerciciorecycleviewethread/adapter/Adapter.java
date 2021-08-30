@@ -9,15 +9,15 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.r2solution.exerciciorecycleviewethread.R;
-import com.r2solution.exerciciorecycleviewethread.model.Arquivo;
+import com.r2solution.exerciciorecycleviewethread.model.Pedido;
 
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
-    List<Arquivo> listaArquivos;
+    List<Pedido> listaPedidos;
 
-    public Adapter(List<Arquivo> listaArquivos) {
-        this.listaArquivos = listaArquivos;
+    public Adapter(List<Pedido> listaPedidos) {
+        this.listaPedidos = listaPedidos;
     }
 
     @Override
@@ -30,27 +30,27 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Arquivo arquivo = listaArquivos.get(position);
-        holder.arquivo.setText(arquivo.getNome());
-        holder.tamanho.setText(arquivo.getTamanho() + "Kb");
+        Pedido pedido = listaPedidos.get(position);
+        holder.numero.setText(pedido.getNumero());
+        holder.valor.setText(pedido.getValor().toString());
     }
 
     @Override
     public int getItemCount() {
-        return listaArquivos.size();
+        return listaPedidos.size();
     }
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView arquivo;
-        TextView tamanho;
+        TextView numero;
+        TextView valor;
 
         public MyViewHolder(View itemView) {
 
             super(itemView);
 
-            arquivo = itemView.findViewById(R.id.tv_arquivo);
-            tamanho = itemView.findViewById(R.id.tv_tamanho);
+            numero = itemView.findViewById(R.id.tv_arquivo);
+            valor = itemView.findViewById(R.id.tv_tamanho);
         }
     }
 
